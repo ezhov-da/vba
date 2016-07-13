@@ -25,7 +25,13 @@ public class VbaGeneration {
     protected String connectionString;
     protected String nameQuery;
 
-    public VbaGeneration(boolean useConnectionString, boolean addHeader, boolean addExecuteStr, String textForParce, String connectionString, String nameQuery) {
+    public VbaGeneration(
+            boolean useConnectionString,
+            boolean addHeader,
+            boolean addExecuteStr,
+            String textForParce,
+            String connectionString,
+            String nameQuery) {
         this.useConnectionString = useConnectionString;
         this.addHeader = addHeader;
         this.addExecuteStr = addExecuteStr;
@@ -55,7 +61,7 @@ public class VbaGeneration {
                 if (i + 1 == length || (i + 1) % countLines == 0) {
                     text = text + nameQuery + " = \"" + strFromArray + "\" & vbnewline\n";
                 } else {
-                    text = text + nameQuery + " = \"" + strFromArray + "\" & vbnewline & _ \n";
+                    text = text + nameQuery + " = " + nameQuery + " & \"" + strFromArray + "\" & vbnewline & _ \n";
                 }
             } else if (i + 1 == length || (i + 1) % countLines == 0) {
                 text = text + "\t\"" + strFromArray + "\"" + " & vbnewline\n";

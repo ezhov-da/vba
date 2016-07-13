@@ -4,6 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="git"/>
         <group name="command_center"/>
-        <group/>
+        <group>
+            <file>file:/mnt/programmer/repositoryGit/vba.git/vba/test/ru/ezhov/VbaGenerationTest.java</file>
+            <file>file:/mnt/programmer/repositoryGit/vba.git/vba/src/ru/ezhov/VbaGeneration.java</file>
+        </group>
     </open-files>
 </project-private>
