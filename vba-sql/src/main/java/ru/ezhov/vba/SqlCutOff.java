@@ -1,4 +1,4 @@
-package ru.ezhov;
+package ru.ezhov.vba;
 
 /**
  * Класс, который очищает запрос SQL от кода vba
