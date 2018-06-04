@@ -6,9 +6,8 @@ package ru.ezhov.vba;
  * @author ezhov_da
  */
 public class VbaGeneration {
-
     protected IPropertiesHolder propertiesHolder = PropertiesHolder.getInstance();
-    protected int countLines = 10;
+    protected int countBlockLine = 10;
 
     protected boolean useConnectionString;
     protected boolean addHeader;
@@ -33,10 +32,10 @@ public class VbaGeneration {
     }
 
     public String generate() {
-        String result = parse();
         String resultHeader = createHeader();
+        String result = parse();
         String execute = addExecute();
-        return resultHeader + result + execute;
+        return resultHeader + result + "\n" + execute;
     }
 
     protected String parse() {
@@ -49,13 +48,13 @@ public class VbaGeneration {
         for (int i = 0; i < length; i++) {
             String strFromArray = array[i];
             strFromArray = strFromArray.replaceAll("\"", "\"\"");
-            if (i % countLines == 0) {
-                if (i + 1 == length || (i + 1) % countLines == 0) {
+            if (i % countBlockLine == 0) {
+                if (i + 1 == length || (i + 1) % countBlockLine == 0) {
                     text = text + nameQuery + " = \"" + strFromArray + "\" & vbnewline\n";
                 } else {
                     text = text + nameQuery + " = " + nameQuery + " & \"" + strFromArray + "\" & vbnewline & _ \n";
                 }
-            } else if (i + 1 == length || (i + 1) % countLines == 0) {
+            } else if (i + 1 == length || (i + 1) % countBlockLine == 0) {
                 text = text + "\t\"" + strFromArray + "\"" + " & vbnewline\n";
             } else {
                 text = text + "\t\"" + strFromArray + "\"" + " & vbnewline & _ \n";

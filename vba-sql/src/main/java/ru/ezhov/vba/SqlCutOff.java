@@ -5,11 +5,8 @@ package ru.ezhov.vba;
  *
  * @author ezhov_da
  */
-public class SqlCutOff
-{
-
-    public String getSqlText(String text)
-    {
+public class SqlCutOff {
+    public String getSqlText(String text) {
         if (text == null || "".equals(text)) {
             return "";
         }
